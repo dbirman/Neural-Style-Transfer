@@ -44,5 +44,5 @@ for content in dirs:
 					print(totalcall)
 					print('*********************************')
 					# subprocess.call(call,shell=True)
-					# os.system(call)
+					os.system(call)
 					print('*********************************')
