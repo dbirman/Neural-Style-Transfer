@@ -30,10 +30,10 @@ for content in dirs:
 					opfx = os.path.join(ofolder,str(si)+str(ci))
 
 					# create call
-					call = "python ~/proj/Neural-Style-Transfer/inetwork.py " \
-						"\'./" + content_image + "\' " \
-						"\'./" + style_image + "\' " \
-						"\'./" + opfx + "\' " \
+					call = "python INetwork.py " \
+						"./" + content_image + " " \
+						"./" + style_image + " " \
+						"./" + opfx + " " \
 						"\""
 
 					totalcall = front_call+call
