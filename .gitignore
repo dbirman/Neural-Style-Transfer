@@ -1,1 +1,4 @@
 *.DS_Store
+images/fbsear/leeks/.DS_Store
+images/fbsear/.DS_Store
+__pycache__/INetwork.cpython-36.pyc
