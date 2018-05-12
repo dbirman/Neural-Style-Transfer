@@ -1,5 +1,6 @@
 import os
 import subprocess
+import time
 
 ipath = "images/fbsear/objects"
 opath  = "images/fbsear/objects/out"
@@ -7,7 +8,9 @@ opath  = "images/fbsear/objects/out"
 d = ipath
 dirs = [o for o in os.listdir(d) if ("out" not in o) and os.path.isdir(os.path.join(d,o))]
 
-front_call = "sbatch -p hns --gres gpu:1 --mem=5000 --time=00:30:00 --wrap=\"module load py-tensorflow; module load py-scipystack; cd $HOME/Neural-Style-Transfer; "
+# f = open("batch.sh","w+")
+# f.write("#!/bin/sh\n")
+front_call = "sbatch -p hns --gres gpu:1 --mem=5000 --time=00:30:00 --wrap=\"module load py-tensorflow; module load py-scipystack; cd ~/Neural-Style-Transfer; "
 
 dirs = dirs[0:2]
 print(dirs)
@@ -30,10 +33,10 @@ for content in dirs:
 					opfx = os.path.join(ofolder,str(si)+str(ci))
 
 					# create call
-					call = "python INetwork.py " \
-						"./" + content_image + " " \
-						"./" + style_image + " " \
-						"./" + opfx + " " \
+					call = "python INetwork.py" \
+						" ./" + content_image + \
+						" ./" + style_image + \
+						" ./" + opfx + \
 						"\""
 
 					totalcall = front_call+call
@@ -43,6 +46,8 @@ for content in dirs:
 					print('*********************************')
 					print(totalcall)
 					print('*********************************')
+					# f.write(call)
 					# subprocess.call(call,shell=True)
-					os.system(call)
+					os.system(totalcall)
 					print('*********************************')
+					time.sleep(1)
