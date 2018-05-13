@@ -50,4 +50,4 @@ for content in dirs:
 					# subprocess.call(call,shell=True)
 					os.system(totalcall)
 					print('*********************************')
-					time.sleep(1)
+					time.sleep(0.25)
