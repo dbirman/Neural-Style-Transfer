@@ -12,16 +12,16 @@ dirs = [o for o in os.listdir(d) if ("out" not in o) and os.path.isdir(os.path.j
 # f.write("#!/bin/sh\n")
 front_call = "sbatch -p hns --gres gpu:1 --mem=5000 --time=00:30:00 --wrap=\"module load py-tensorflow; module load py-scipystack; cd ~/Neural-Style-Transfer; "
 
-dirs = dirs[0:2]
-print(dirs)
+# dirs = dirs[0:2]
+# print(dirs)
 
 for content in dirs:
 	for style in dirs:
 		if style != content: 
-			for ci in [1]:
-				for si in [1]:
-			# for ci in range(1,5):
-				# for si in range(1,5):
+			# for ci in [1]:
+			# 	for si in [1]:
+			for ci in range(1,5):
+				for si in range(1,5):
 					content_image = os.path.join(ipath,content,str(ci)+".jpg")
 					style_image = os.path.join(ipath,style,str(si)+".jpg")
 
