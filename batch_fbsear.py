@@ -17,37 +17,37 @@ front_call = "sbatch -p hns --gres gpu:1 --mem=5000 --time=00:30:00 --wrap=\"mod
 
 for content in dirs:
 	for style in dirs:
-		if style != content: 
+		# if style != content: 
 			# for ci in [1]:
 			# 	for si in [1]:
-			for ci in range(1,5):
-				for si in range(1,5):
-					content_image = os.path.join(ipath,content,str(ci)+".jpg")
-					style_image = os.path.join(ipath,style,str(si)+".jpg")
+		for ci in range(1,5):
+			for si in range(1,5):
+				content_image = os.path.join(ipath,content,str(ci)+".jpg")
+				style_image = os.path.join(ipath,style,str(si)+".jpg")
 
-					# check folder
-					ofolder = os.path.join(opath,style+content)
-					if not os.path.exists(ofolder):
-						os.makedirs(ofolder)
+				# check folder
+				ofolder = os.path.join(opath,style+content)
+				if not os.path.exists(ofolder):
+					os.makedirs(ofolder)
 
-					opfx = os.path.join(ofolder,str(si)+str(ci))
+				opfx = os.path.join(ofolder,str(si)+str(ci))
 
-					# create call
-					call = "python INetwork.py" \
-						" ./" + content_image + \
-						" ./" + style_image + \
-						" ./" + opfx + \
-						"\""
+				# create call
+				call = "python INetwork.py" \
+					" ./" + content_image + \
+					" ./" + style_image + \
+					" ./" + opfx + \
+					"\""
 
-					totalcall = front_call+call
+				totalcall = front_call+call
 
-					print('*********************************')
-					print('* creating call for: ************')
-					print('*********************************')
-					print(totalcall)
-					print('*********************************')
-					# f.write(call)
-					# subprocess.call(call,shell=True)
-					os.system(totalcall)
-					print('*********************************')
-					time.sleep(0.25)
+				print('*********************************')
+				print('* creating call for: ************')
+				print('*********************************')
+				print(totalcall)
+				print('*********************************')
+				# f.write(call)
+				# subprocess.call(call,shell=True)
+				os.system(totalcall)
+				print('*********************************')
+				time.sleep(0.25)
