@@ -3,4 +3,4 @@
 *.err
 __pycache__/INetwork.cpython-36.pyc
 images/fbsear/objects/out/*
-images/fbsear/gist/out/*
+images/fbsear/scenes/out/*
